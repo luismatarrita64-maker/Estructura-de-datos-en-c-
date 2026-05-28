@@ -1,0 +1,109 @@
+import java.util.Scanner;
+
+public class LAB10CONTROL_MELVIN {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        double litrosSuper = 0, montoSuper = 0, gananciaSuper = 0;
+        double litrosRegular = 0, montoRegular = 0, gananciaRegular = 0;
+        double litrosDiesel = 0, montoDiesel = 0, gananciaDiesel = 0;
+        double litrosLPG = 0, montoLPG = 0, gananciaLPG = 0;
+
+        String continuar = "s";
+
+        while (continuar.equalsIgnoreCase("s")) {
+
+            System.out.print("\nNombre del cliente: ");
+            String nombre = sc.nextLine();
+
+            System.out.println("1. Gasolina super");
+            System.out.println("2. Gasolina regular");
+            System.out.println("3. Diesel");
+            System.out.println("4. Gas LPG");
+            System.out.print("Tipo de combustible: ");
+            int tipo = Integer.parseInt(sc.nextLine());
+
+            System.out.print("Litros: ");
+            double litros = Double.parseDouble(sc.nextLine());
+
+            double monto = 0;
+            double ganancia = 0;
+            String combustible = "";
+
+            if (tipo == 1) {
+                monto = litros * 737;
+                ganancia = monto * 0.077;
+                combustible = "Gasolina super";
+                litrosSuper += litros;
+                montoSuper += monto;
+                gananciaSuper += ganancia;
+            } else if (tipo == 2) {
+                monto = litros * 721;
+                ganancia = monto * 0.078;
+                combustible = "Gasolina regular";
+                litrosRegular += litros;
+                montoRegular += monto;
+                gananciaRegular += ganancia;
+            } else if (tipo == 3) {
+                monto = litros * 714;
+                ganancia = monto * 0.093;
+                combustible = "Diesel";
+                litrosDiesel += litros;
+                montoDiesel += monto;
+                gananciaDiesel += ganancia;
+            } else if (tipo == 4) {
+                monto = litros * 265;
+                ganancia = monto * 0.095;
+                combustible = "Gas LPG";
+                litrosLPG += litros;
+                montoLPG += monto;
+                gananciaLPG += ganancia;
+            }
+
+            System.out.println("\n-----------------------------");
+            System.out.println("Cliente:         " + nombre);
+            System.out.println("Combustible:     " + combustible);
+            System.out.println("Litros:          " + litros);
+            System.out.println("Precio:          " + monto);
+            System.out.println("Margen ganancia: " + ganancia);
+            System.out.println("-----------------------------");
+
+            System.out.print("\nOtra venta? (s/n): ");
+            continuar = sc.nextLine();
+        }
+
+        double montoTotal = montoSuper + montoRegular + montoDiesel + montoLPG;
+        double gananciaTotal = gananciaSuper + gananciaRegular + gananciaDiesel + gananciaLPG;
+
+        System.out.println("\n===== RESUMEN GENERAL - PEGASO =====");
+
+        System.out.println("\nGasolina super:");
+        System.out.println("  Litros:          " + litrosSuper);
+        System.out.println("  Monto:           " + montoSuper);
+        System.out.println("  Margen ganancia: " + gananciaSuper);
+
+        System.out.println("\nGasolina regular:");
+        System.out.println("  Litros:          " + litrosRegular);
+        System.out.println("  Monto:           " + montoRegular);
+        System.out.println("  Margen ganancia: " + gananciaRegular);
+
+        System.out.println("\nDiesel:");
+        System.out.println("  Litros:          " + litrosDiesel);
+        System.out.println("  Monto:           " + montoDiesel);
+        System.out.println("  Margen ganancia: " + gananciaDiesel);
+
+        System.out.println("\nGas LPG:");
+        System.out.println("  Litros:          " + litrosLPG);
+        System.out.println("  Monto:           " + montoLPG);
+        System.out.println("  Margen ganancia: " + gananciaLPG);
+
+        System.out.println("\n====================================");
+        System.out.println("Monto total ventas:          " + montoTotal);
+        System.out.println("Monto total margen ganancia: " + gananciaTotal);
+        System.out.println("====================================");
+
+        sc.close();
+    }
+}
