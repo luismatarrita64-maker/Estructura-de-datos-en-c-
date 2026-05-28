@@ -49,8 +49,12 @@ public:
 
 int main(int argc, char const *argv[])
 {
-    return 0;
+    int opcion;
+    do{
+        cout<<"====================" << endl;
 
-    //subiendo el proyecto a github
+    }while (opcion != 5);
+
+    
     
 }
